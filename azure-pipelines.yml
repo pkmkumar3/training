@@ -15,14 +15,8 @@ stages:
           name: mypool
         steps:
       
-        - task: Docker@2
-          inputs:
-            containerRegistry: 'docker_training'
-            repository: 'pkmkumar3/training'
-            command: 'build'
-            Dockerfile: '**/maven'
-        - task: Docker@2
-          inputs:
-            containerRegistry: 'acr'
-            repository: 'mnv-image'
-            command: 'push'
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'acr'
+          repository: 'test'
+          command: 'push'
