@@ -6,7 +6,7 @@
 trigger:
 - main
 stages:
-  - stage: Build stage
+  - stage: Build_stage
     displayName: Build
     jobs:
       - job: Build
