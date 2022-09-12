@@ -17,12 +17,12 @@ stages:
         
         - task: Docker@2
           inputs:
-            containerRegistry: 'docker_training'
+            containerRegistry: 'training'
             repository: 'lab141'
             command: 'build'
             Dockerfile: '**/maven'
         - task: Docker@2
           inputs:
-            containerRegistry: 'docker_training'
+            containerRegistry: 'training'
             repository: 'test'
             command: 'push'
