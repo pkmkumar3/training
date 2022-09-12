@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maven
+  labels:
+    app: maven
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maven
+  template:
+    metadata:
+      app: maven
+      labels:
+        app: maven
+    spec:
+      containers:
+        - name: maven
+          image: lab141.azurecr.io/test:21
+          ports:
+            - containerPort: 8080
+          env:
+          - name: mysql_server
+              valueFrom:
+                configMapkeyRef:
+                  name: mysql-configmap
+                  key: database_url
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  maven
+spec:
+  selector:
+    app:  maven
+  type:  LoadBalancer
+  ports:
+  - protocol:  TCP
+    port:  8080
+    targetPort:  8080
+    nodePort: 30000
