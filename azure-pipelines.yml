@@ -27,3 +27,8 @@ stages:
             containerRegistry: 'acr'
             repository: 'test'
             command: 'push'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'training'
+            publishLocation: 'Container'
