@@ -10,7 +10,7 @@ stages:
     displayName: Build
     jobs:
       - job: Build
-        displayName: build
+        displayName: Build
         pool:
           name: mypool
         steps:
