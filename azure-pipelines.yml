@@ -23,6 +23,6 @@ stages:
             Dockerfile: '**/maven'
         - task: Docker@2
           inputs:
-            containerRegistry: 'training'
-            repository: 'test'
+            containerRegistry: 'acr'
+            repository: 'lab141'
             command: 'push'
