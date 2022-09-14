@@ -67,4 +67,4 @@ stages:
               kubectl apply -f mysql_configmap.yaml
               kubectl apply -f maven.yaml
               kubectl get pod
-              minikube serivce maven
+              minikube service maven
