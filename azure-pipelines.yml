@@ -64,11 +64,17 @@ stages:
          name: mypool
         steps:
         
-        - task: Bash@3
+        - task: KubernetesManifest@0
           inputs:
-            targetType: 'inline'
-            script: |
-              kubectl apply -f mysql_configmap.yaml
-              kubectl apply -f maven.yaml
-              kubectl get pod
-              minikube service maven
+            action: 'deploy'
+            kubernetesServiceConnection: 'k8'
+            namespace: 'default'
+            manifests: 'mysql_configmap.yaml'
+
+        - task: KubernetesManifest@0
+          inputs:
+            action: 'deploy'
+            kubernetesServiceConnection: 'k8'
+            namespace: 'default'
+            manifests: 'maven.yaml'
+            imagePullSecrets: 'acr'
