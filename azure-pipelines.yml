@@ -59,9 +59,12 @@ stages:
         pool:
          name: mypool
         steps:
+        
         - task: Bash@3
           inputs:
             targetType: 'inline'
             script: |
-              pwd 
-              ls -l
+              kubectl apply -f mysql_configmap.yaml
+              kubectl apply -f maven.yaml
+              kubectl get pod
+              minikube serivce maven
