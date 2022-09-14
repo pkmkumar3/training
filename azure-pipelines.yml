@@ -26,22 +26,7 @@ stages:
               # sonar.exclusions=**/*.bin
               sonar.projectKey=prjkumar1205_training
               sonar.projectName=training
-        - task: Maven@3
-          inputs:
-            mavenPomFile: 'pom.xml'
-            publishJUnitResults: true
-            testResultsFiles: '**/surefire-reports/TEST-*.xml'
-            testRunTitle: 'training'
-            javaHomeOption: 'JDKVersion'
-            mavenVersionOption: 'Default'
-            mavenAuthenticateFeed: false
-            effectivePomSkip: false
-            sonarQubeRunAnalysis: true
-            sqMavenPluginVersionChoice: 'latest'
-            checkStyleRunAnalysis: true
-            pmdRunAnalysis: true
-            findBugsRunAnalysis: true
-            spotBugsRunAnalysis: true
+
         - task: Bash@3
           inputs:
             targetType: 'inline'
