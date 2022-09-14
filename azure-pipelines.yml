@@ -82,4 +82,4 @@ stages:
         - task: Bash@3
           inputs:
             targetType: 'inline'
-            script: 'echo $(release.artifacts.pkmkumar3.training.BuildId)'
+            script: 'echo $(Build.BuildId)'
