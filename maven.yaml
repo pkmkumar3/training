@@ -11,22 +11,23 @@ spec:
       app: maven
   template:
     metadata:
-      app: maven
+      name: maven
       labels:
         app: maven
     spec:
+      imagePullSecrets:
+        - name: acr
       containers:
         - name: maven
-          image: lab141.azurecr.io/test:21
+          image: lab141.azurecr.io/test:36
           ports:
             - containerPort: 8080
           env:
-          - name: mysql_server
+            - name:  mysql_Server
               valueFrom:
-                configMapkeyRef:
-                  name: mysql-configmap
-                  key: database_url
-
+                configMapKeyRef:
+                        name:  mysql-configmap
+                        key:  database_url
 ---
 apiVersion: v1
 kind: Service
