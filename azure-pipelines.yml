@@ -66,3 +66,17 @@ stages:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
             ArtifactName: 'drop'
             publishLocation: 'Container'
+  
+  - stage: Deployment_stage
+    displayName: Deployment
+    jobs:
+      - job: Deployment
+        pool:
+         name: mypool
+        steps:
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script: |
+              pwd 
+              ls -l
