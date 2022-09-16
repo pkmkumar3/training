@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: lhci-server
-          image: hmaksqaacr.azurecr.io/hm-products:lighthouse
+          image: lab142.azurecr.io/lab:lighthousenew
           imagePullPolicy: Always
 
 #          volumeMounts:
