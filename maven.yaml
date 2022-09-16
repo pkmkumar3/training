@@ -15,8 +15,8 @@ spec:
       labels:
         app: maven
     spec:
-      imagePullSecrets:
-        - name: acr
+#      imagePullSecrets:
+#        - name: acr
       containers:
         - name: maven
           image: lab141.azurecr.io/test:36

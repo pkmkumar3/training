@@ -1,0 +1,11 @@
+{
+  "ci": {
+    "server": {
+      "storage": {
+        "storageMethod": "sql",
+        "sqlDialect": "postgres",
+        "sqlConnectionUrl": "postgresql://postgres:password@postgres:80/postgres"
+      }
+    }
+  }
+}

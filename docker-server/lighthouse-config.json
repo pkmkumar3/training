@@ -1,0 +1,22 @@
+[
+{
+"name": "LHCI_NO_LIGHTHOUSERC",
+"value": "1",
+"slotSetting": false
+},
+{
+"name": "LHCI_STORAGE__SQL_CONNECTION_SSL",
+"value": "0",
+"slotSetting": false
+},
+{
+"name": "LHCI_STORAGE__SQL_CONNECTION_URL",
+"value": "postgresql://postgres:password@postgres:5432/postgres",
+"slotSetting": false
+},
+{
+"name": "LHCI_STORAGE__SQL_DIALECT",
+"value": "postgres",
+"slotSetting": false
+}
+]

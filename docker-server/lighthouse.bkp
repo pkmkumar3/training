@@ -1,0 +1,60 @@
+{
+  "ci": {
+    "server": {
+      "port": 9001,
+      "storage": {
+        "storageMethod": "sql",
+        "sqlDialect": "sqlite",
+        "sqlDatabasePath": "/data/lhci.db"
+      }
+    }
+  }
+}
+
+{
+  "ci": {
+    "server": {
+      "storage": {
+        "storageMethod": "sql",
+        "sqlDialect": "postgres",
+        "sqlConnectionUrl": "postgresql://postgres:password@lighthouse-config:80/postgres"
+      }
+    }
+  }
+}
+
+
+
+
+=====================
+
+[
+  {
+  "name": "LHCI_NO_LIGHTHOUSERC",
+  "value": "1",
+  "slotSetting": false
+  },
+  {
+  "name": "LHCI_STORAGE__SQL_CONNECTION_SSL",
+  "value": "0",
+  "slotSetting": false
+  },
+  {
+  "name": "LHCI_STORAGE__SQL_CONNECTION_URL",
+  "value": "postgresql://postgres:password@lighthouse-config:80/postgres",
+  "slotSetting": false
+  },
+  {
+  "name": "LHCI_STORAGE__SQL_DIALECT",
+  "value": "postgres",
+  "slotSetting": false
+  }
+  ]
+
+
+
+  ===============
+
+      "sqlite3": "^4.0.6"
+    "mysql2": "^2.1.0",
+        "sqlDatabasePath":"./lhci.db",

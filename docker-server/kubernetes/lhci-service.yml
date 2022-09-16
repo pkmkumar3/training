@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lhci-server
+  labels:
+    name: lhci-server
+spec:
+  ports:
+  - port: 80
+    targetPort: 9001
+  selector:
+    name: lhci-server
+  type: LoadBalancer
