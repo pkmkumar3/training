@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: hmaksqaacr.azurecr.io/hm-products:postgres
+          image: lab142.azurecr.io/lab:postgres
 #          volumeMounts:
 #            - mountPath: '/data'
 #              name: lhci-data-volume
