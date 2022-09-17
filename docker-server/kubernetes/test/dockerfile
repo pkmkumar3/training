@@ -1,0 +1,9 @@
+FROM node:12-buster-slim
+
+WORKDIR /usr/src/lhci
+COPY package.json .
+RUN npm install
+COPY lighthouserc.json .
+
+EXPOSE 8000
+CMD [ "npm", "start" ]

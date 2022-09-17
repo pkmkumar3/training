@@ -1,0 +1,30 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: lhci-pv-volume  # Sets PV's name
+  labels:
+    type: local  # Sets PV's type to local
+    app: lhci
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 50Gi # Sets PV Volume
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data1"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: lhci-pv-claim  # Sets name of PVC
+  labels:
+    app: lhci
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce  # Sets read and write access
+  resources:
+    requests:
+      storage: 50Gi  # Sets volume size
+
