@@ -46,3 +46,34 @@ stages:
             inputs:
               command: "custom"
               customCommand: "run lh:healthcheck"
+             - task: Npm@1
+            displayName: "Execute Performance Profiling"
+            inputs:
+              command: "custom"
+              workingDir: '$(Build.SourcesDirectory)/devops-tools/lighthouse/$(appName)'
+              customCommand: "run collect" 
+  - stage: UploadPerformanceReport
+    displayName: "Upload Performance Report"
+    jobs:
+      - job: UploadPerformanceReport
+        displayName: "Upload Performance Report"
+        steps:
+          - checkout: none
+          - task: Npm@1
+            displayName: "Upload Performance Report"
+            inputs:
+              command: "custom"
+              workingDir: '$(Build.SourcesDirectory)/devops-tools/lighthouse/$(appName)'
+              customCommand: "run Upload"
+  - stage: Assertions
+    displayName: "Perform Assertions"
+    jobs:
+      - job: PerformAssertions
+        steps:
+          - checkout: none
+          - task: Npm@1
+            displayName: "Perform Assertions"
+            inputs:
+              command: "custom"
+              workingDir: '$(Build.SourcesDirectory)/devops-tools/lighthouse/$(appName)'
+              customCommand: "run assert"
