@@ -20,9 +20,9 @@ spec:
           image: lab142.azurecr.io/lab:lighthousenew
           imagePullPolicy: Always
 
-#          volumeMounts:
-#            - mountPath: '/data'
-#              name: lhci-data-volume
+          volumeMounts:
+            - mountPath: '/data'
+              name: lhci-data-volume
 #          # required for ingress health checks to work
           ports:
             - containerPort: 9001
@@ -54,7 +54,7 @@ spec:
 #            httpGet:
 #              path: /healthz
 #              port: 9001
-      # volumes:
-      #   - name: lhci-data-volume
-      #     persistentVolumeClaim:
-      #       claimName: lhci-data-claim
+       volumes:
+         - name: lhci-data-volume
+           persistentVolumeClaim:
+             claimName: lhci-data-claim
