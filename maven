@@ -1,5 +1,0 @@
-FROM maven:3.8.4-jdk-11
-COPY spring-petclinic-2.7.3.jar /root
-WORKDIR /root
-RUN ls -l
-CMD java -jar spring-petclinic-2.7.3.jar
