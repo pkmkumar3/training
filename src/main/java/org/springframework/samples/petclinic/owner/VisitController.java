@@ -17,6 +17,8 @@ package org.springframework.samples.petclinic.owner;
 
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -25,8 +27,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import jakarta.validation.Valid;
 
 /**
  * @author Juergen Hoeller
@@ -60,11 +60,9 @@ class VisitController {
 	public Visit loadPetWithVisit(@PathVariable("ownerId") int ownerId, @PathVariable("petId") int petId,
 			Map<String, Object> model) {
 		Owner owner = this.owners.findById(ownerId);
-
 		Pet pet = owner.getPet(petId);
 		model.put("pet", pet);
 		model.put("owner", owner);
-
 		Visit visit = new Visit();
 		pet.addVisit(visit);
 		return visit;
@@ -73,7 +71,7 @@ class VisitController {
 	// Spring MVC calls method loadPetWithVisit(...) before initNewVisitForm is
 	// called
 	@GetMapping("/owners/{ownerId}/pets/{petId}/visits/new")
-	public String initNewVisitForm() {
+	public String initNewVisitForm(@PathVariable("petId") int petId, Map<String, Object> model) {
 		return "pets/createOrUpdateVisitForm";
 	}
 
@@ -85,10 +83,11 @@ class VisitController {
 		if (result.hasErrors()) {
 			return "pets/createOrUpdateVisitForm";
 		}
-
-		owner.addVisit(petId, visit);
-		this.owners.save(owner);
-		return "redirect:/owners/{ownerId}";
+		else {
+			owner.addVisit(petId, visit);
+			this.owners.save(owner);
+			return "redirect:/owners/{ownerId}";
+		}
 	}
 
 }
