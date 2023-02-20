@@ -1,4 +1,0 @@
-FROM postgres:10.1
-ENV POSTGRES_DB=postgres
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=password
